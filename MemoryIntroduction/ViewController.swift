@@ -13,25 +13,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var mother: Parent?
-        mother = Parent()
+        var alexey: Person?
+        var swiftbook: Job?
         
-        mother = nil
+        alexey = Person()
+        swiftbook = Job()
+        
+        alexey?.job = swiftbook
+        swiftbook?.person = alexey
+        
+        alexey = nil
+        swiftbook = nil
 
     }
 }
 
-class Parent {
-    
-    var child = Child() // Зависимый. Зависит от класса Parent. Владелец: Parent
+// Parent
+class Person {
+    var job: Job?
     
     deinit {
-        print("Paren will be dealocated!") // Выгружен из памяти
+        print("Person will be dealocated")
     }
 }
 
-class Child {
+// Child
+class Job {
+    weak var person: Person?
+    
     deinit {
-        print("Child will be dealocated") // Выгружен из памяти
+        print("Job will be dealocated")
     }
 }
