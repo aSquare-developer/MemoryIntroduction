@@ -32,16 +32,20 @@ class ViewController: UIViewController {
 class Person {
     var job: Job?
     
+    /*
     deinit {
         print("Person will be dealocated")
     }
+     */
 }
 
 // Child
 class Job {
     weak var person: Person?
     
+    /*
     deinit {
         print("Job will be dealocated")
     }
+     */
 }
