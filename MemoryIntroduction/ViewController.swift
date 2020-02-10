@@ -13,24 +13,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var first: MyClass? = MyClass()
-        var second = first
-        var third = first
+        var mother: Parent?
+        mother = Parent()
         
-        first = nil
-        second = nil
-        third = nil
+        mother = nil
+
     }
-
-
 }
 
-class MyClass {
+class Parent {
     
-    var someNumber = 16
+    var child = Child() // Зависимый. Зависит от класса Parent. Владелец: Parent
     
-    // deinit выполняется когда объект выгружается из памяти.
     deinit {
-        print("MyClass will be dealocated!")
+        print("Paren will be dealocated!") // Выгружен из памяти
+    }
+}
+
+class Child {
+    deinit {
+        print("Child will be dealocated") // Выгружен из памяти
     }
 }
